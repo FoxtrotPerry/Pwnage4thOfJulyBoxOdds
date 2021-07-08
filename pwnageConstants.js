@@ -1,10 +1,16 @@
+const ERGO_CONST = 'ERGO';
+const SYMM_CONST = 'SYMM';
 
 module.exports = {
+    MOUSE_TYPES: {
+        ERGO: ERGO_CONST,
+        SYMM: SYMM_CONST,
+    },
     BOX_PRODUCTS: [
         {
             available: true,
             isMouse: true,
-            mouseType: "ERGO",
+            mouseType: ERGO_CONST,
             title: "Ultra Custom Ergo Gaming Mouse",
             variantTitle: "Black",
             price: 59.99,
@@ -14,7 +20,7 @@ module.exports = {
         {
             available: true,
             isMouse: true,
-            mouseType: "ERGO",
+            mouseType: ERGO_CONST,
             title: "Ultra Custom Ergo Gaming Mouse",
             variantTitle: "Black Solid",
             price: 59.99,
@@ -24,7 +30,7 @@ module.exports = {
         {
             available: true,
             isMouse: true,
-            mouseType: "ERGO",
+            mouseType: ERGO_CONST,
             title: "Ultra Custom Ergo Gaming Mouse",
             variantTitle: "White",
             price: 59.99,
@@ -34,7 +40,7 @@ module.exports = {
         {
             available: true,
             isMouse: true,
-            mouseType: "ERGO",
+            mouseType: ERGO_CONST,
             title: "Ultra Custom Ergo Gaming Mouse",
             variantTitle: "White Solid",
             price: 59.99,
@@ -44,7 +50,7 @@ module.exports = {
         {
             available: false,
             isMouse: true,
-            mouseType: "SYMM",
+            mouseType: SYMM_CONST,
             title: "Ultra Custom Wireless Symm",
             variantTitle: "Black",
             price: 79.99,
@@ -54,7 +60,7 @@ module.exports = {
         {
             available: false,
             isMouse: true,
-            mouseType: "SYMM",
+            mouseType: SYMM_CONST,
             title: "Ultra Custom Wireless Symm",
             variantTitle: "Solid Black",
             price: 79.99,
@@ -64,7 +70,7 @@ module.exports = {
         {
             available: true,
             isMouse: true,
-            mouseType: "SYMM",
+            mouseType: SYMM_CONST,
             title: "Ultra Custom Wireless Symm",
             variantTitle: "White",
             price: 79.99,
@@ -74,7 +80,7 @@ module.exports = {
         {
             available: false,
             isMouse: true,
-            mouseType: "SYMM",
+            mouseType: SYMM_CONST,
             title: "Ultra Custom Wireless Symm",
             variantTitle: "Solid White",
             price: 79.99,
@@ -355,7 +361,7 @@ module.exports = {
         {
             available: true,
             isMouse: true,
-            mouseType: "ERGO",
+            mouseType: ERGO_CONST,
             title: "Ultra Custom Wireless Ergo",
             variantTitle: "Black",
             price: 89.99,
@@ -365,7 +371,7 @@ module.exports = {
         {
             available: true,
             isMouse: true,
-            mouseType: "ERGO",
+            mouseType: ERGO_CONST,
             title: "Ultra Custom Wireless Ergo",
             variantTitle: "White",
             price: 89.99,
@@ -413,7 +419,7 @@ module.exports = {
         {
             available: true,
             isMouse: true,
-            mouseType: "SYMM",
+            mouseType: SYMM_CONST,
             title: "Ultra Custom Symm 2 Gaming Mouse",
             variantTitle: "Black",
             price: 59.99,
@@ -423,7 +429,7 @@ module.exports = {
         {
             available: false,
             isMouse: true,
-            mouseType: "SYMM",
+            mouseType: SYMM_CONST,
             title: "Ultra Custom Symm 2 Gaming Mouse",
             variantTitle: "Solid Black",
             price: 59.99,
@@ -433,7 +439,7 @@ module.exports = {
         {
             available: true,
             isMouse: true,
-            mouseType: "SYMM",
+            mouseType: SYMM_CONST,
             title: "Ultra Custom Symm 2 Gaming Mouse",
             variantTitle: "White",
             price: 59.99,
@@ -443,7 +449,7 @@ module.exports = {
         {
             available: false,
             isMouse: true,
-            mouseType: "SYMM",
+            mouseType: SYMM_CONST,
             title: "Ultra Custom Symm 2 Gaming Mouse",
             variantTitle: "Solid White",
             price: 59.99,
@@ -469,7 +475,7 @@ module.exports = {
         {
             available: true,
             isMouse: true,
-            mouseType: "SYMM",
+            mouseType: SYMM_CONST,
             title: "Ultra Custom Wireless Symm 2",
             variantTitle: "Black",
             price: 109.99,
@@ -479,7 +485,7 @@ module.exports = {
         {
             available: true,
             isMouse: true,
-            mouseType: "SYMM",
+            mouseType: SYMM_CONST,
             title: "Ultra Custom Wireless Symm 2",
             variantTitle: "Solid Black",
             price: 109.99,
@@ -489,7 +495,7 @@ module.exports = {
         {
             available: true,
             isMouse: true,
-            mouseType: "SYMM",
+            mouseType: SYMM_CONST,
             title: "Ultra Custom Wireless Symm 2",
             variantTitle: "White",
             price: 109.99,
@@ -499,7 +505,7 @@ module.exports = {
         {
             available: true,
             isMouse: true,
-            mouseType: "SYMM",
+            mouseType: SYMM_CONST,
             title: "Ultra Custom Wireless Symm 2",
             variantTitle: "Solid White",
             price: 109.99,

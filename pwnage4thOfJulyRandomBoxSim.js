@@ -1,4 +1,4 @@
-const { BOX_PRODUCTS } = require('./pwnageConstants');
+const { BOX_PRODUCTS, MOUSE_TYPES } = require('./pwnageConstants');
 
 const getRandomInt = (min, max) => {
     min = Math.ceil(min);
@@ -17,7 +17,11 @@ const logItems = (boxProducts, boxValue, iteration) => {
         boxLog.results[getProdUniqTitle(product)].timesSelected++;
     });
     if (boxProducts.filter(product => product.isMouse).length) {
-        boxLog.boxesWithMice++;
+        if (boxProducts.filter(product => product.mouseType === MOUSE_TYPES.ERGO).length) {
+            boxLog.boxesWithErgo++;
+        } else if (boxProducts.filter(product => product.mouseType === MOUSE_TYPES.SYMM).length) {
+            boxLog.boxesWithSymm++;
+        }
     }
     boxLog.totalItems += boxProducts.length;
     boxLog.totalValue += Math.ceil(boxValue);
@@ -35,33 +39,15 @@ const reduceFunc = (acc, curr) => {
 };
 
 const crunchNumbers = () => {
-    let numebrOfErgos = 0, numberOfSymms = 0;
     boxLog.averageValue = (boxLog.totalValue / boxLog.iterations).toFixed(2);
-    boxLog.mousePercentage = `%${((boxLog.boxesWithMice / boxLog.iterations) * 100).toFixed(2)}`;
+    boxLog.mousePercentage =
+    `%${(((boxLog.boxesWithErgo + boxLog.boxesWithSymm) / boxLog.iterations) * 100).toFixed(2)}`;
+    boxLog.ErgoPercentage = `%${((boxLog.boxesWithErgo / boxLog.iterations) * 100).toFixed(2)}`;
+    boxLog.SymmPercentage = `%${((boxLog.boxesWithSymm / boxLog.iterations) * 100).toFixed(2)}`;
     Object.keys(boxLog.results).forEach(key => {
-        console.log(key);
         const resultObj = boxLog.results[key];
         boxLog.results[key].chanceToBeInBox = `%${((resultObj.timesSelected / boxLog.iterations) * 100).toFixed(2)}`;
-        if (boxLog.results[key].isMouse) {
-            // TODO: populate ergoPercentage & symmPercentage
-        }
     });
-
-
-};
-
-let boxLog = {
-    iterations: 0,
-    totalValue: 0,
-    boxesWithMice: 0,
-    totalItems: 0,
-    ErgoPercentage: 0,
-    SymmPercentage: 0,
-    averageValue: '',
-    mousePercentage: '',
-    results: {
-        ...BOX_PRODUCTS.reduce(reduceFunc, {})
-    }
 };
 
 const simulateBoxRolls = (iterationCap) => {
@@ -134,8 +120,30 @@ const simulateBoxRolls = (iterationCap) => {
     }
 };
 
+let boxLog = {
+    iterations: 0,
+    totalValue: 0,
+    boxesWithErgo: 0,
+    boxesWithSymm: 0,
+    totalItems: 0,
+    ErgoPercentage: '',
+    SymmPercentage: '',
+    averageValue: '',
+    mousePercentage: '',
+    results: {
+        ...BOX_PRODUCTS.reduce(reduceFunc, {})
+    }
+};
+
 console.log('Starting Random Box Simulation:');
 simulateBoxRolls(100000);
 console.log('-----\nEnd of Random Box Simulation.');
 crunchNumbers();
 console.log(boxLog);
+console.log(`Percentage of getting any ol' mouse: ${boxLog.mousePercentage}`);
+console.log(`Percentage of getting a Pwnage Ergo: ${boxLog.ErgoPercentage}`);
+console.log(`Percentage of getting a Pwnage Symm: ${boxLog.SymmPercentage}`);
+console.log(`----- Full Product Chance Breakdown -----`);
+Object.keys(boxLog.results).forEach(key => {
+    console.log(`${key}: ${boxLog.results[key].chanceToBeInBox}`);
+})
